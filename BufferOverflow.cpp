@@ -76,7 +76,7 @@ void demoAdjacentMemoryOverflow(char* userName, char* password) {
 	// print some info about variables
 	printf("%-20s: %p\n", "message", message);
 	printf("%-20s: %p\n", "userName", userName);
-	printf("%-20s: %p\n", "password", password);
+	cout << "password" << endl;
 	printf("%-20s: %p\n", "realPassword", &realPassword);
 	printf("%-20s: %p\n", "buf", &buf);
 	printf("\n");
@@ -108,7 +108,7 @@ void demoDataTypeOverflow(int totalItemsCount, some_structure* pItem, int itemPo
 	// See http://blogs.msdn.com/oldnewthing/archive/2004/01/29/64389.aspx
 	some_structure* data_copy = NULL;
 	int bytesToAllocation = totalItemsCount * sizeof(some_structure);
-	printf("Bytes to allocation: %d\n", bytesToAllocation);
+	cout << "Bytes to allocation: " << bytesToAllocation << endl;
 	data_copy = (some_structure*)malloc(bytesToAllocation);
 	if (itemPosition >= 0 && itemPosition < totalItemsCount) {
 		memcpy(&(data_copy[itemPosition]), pItem, sizeof(some_structure));
@@ -130,21 +130,20 @@ int main() {
 	// VS, Debug mode
 	//
 
-	printf("\n\n#### demoBufferOverflowData ####\n");
+	cout << demoBufferOverflowData << endl;
 	demoBufferOverflowData();
 	demoBufferOverflowData();
-	/**/
+	/**
 	//
 	// More on buffer overflow - reveal sensitive data.
 	// Try to login as admin. Password is hardcoded in the application.
 	//
 	// VS, Debug mode
-	/**
 	printf("\n\n#### demoAdjacentMemoryOverflow ####\n");
 	demoAdjacentMemoryOverflow("admin", "I don't know the password");
 	demoAdjacentMemoryOverflow("adminxxxx", "I still don't know the password");
 	demoAdjacentMemoryOverflow("admin", "very secret password nbu123");
-	/**/
+	**/
 	//
 	// And more on buffer overflow - run different function or user code!
 	// Eclipse, Debug - work
