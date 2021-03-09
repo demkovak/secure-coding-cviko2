@@ -31,7 +31,6 @@ int main(void) {
   int arrayStack[5];
   int* arrayHeap = new int[5];
   int ret = memcheckFailDemo(arrayStack, 5, arrayHeap, 5);
-  cout << ret << endl;
   return 0;
 }
 
