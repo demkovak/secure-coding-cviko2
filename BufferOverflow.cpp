@@ -81,8 +81,8 @@ void demoAdjacentMemoryOverflow(char* userName, char* password) {
 	printf("%-20s: %p\n", "buf", &buf);
 	printf("\n");
 
-	memset(buf, 0, sizeof(buf));
-	memset(message, 1, sizeof(message));
+	buf = memset(buf, 0, sizeof(buf));
+	message = memset(message, 1, sizeof(message));
 	strncpy(buf, userName, sizeof(buf));              // We will copy only characters which fits into buf
 
 													  // Now print username to standard output - nothing sensitive, right?
@@ -134,11 +134,11 @@ int main() {
 	demoBufferOverflowData();
 	demoBufferOverflowData();
 	/**
-	//
-	// More on buffer overflow - reveal sensitive data.
-	// Try to login as admin. Password is hardcoded in the application.
-	//
-	// VS, Debug mode
+	
+	 More on buffer overflow - reveal sensitive data.
+	 Try to login as admin. Password is hardcoded in the application.
+	
+	 VS, Debug mode
 	printf("\n\n#### demoAdjacentMemoryOverflow ####\n");
 	demoAdjacentMemoryOverflow("admin", "I don't know the password");
 	demoAdjacentMemoryOverflow("adminxxxx", "I still don't know the password");
