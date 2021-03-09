@@ -115,7 +115,7 @@ void demoDataTypeOverflow(int totalItemsCount, some_structure* pItem, int itemPo
 	}
 	else {
 		printf("Out of bound assignment");
-		return;
+		//return;
 	}
 	free(data_copy);
 }
@@ -139,7 +139,7 @@ int main() {
 	// Try to login as admin. Password is hardcoded in the application.
 	//
 	// VS, Debug mode
-	/*
+	/**
 	printf("\n\n#### demoAdjacentMemoryOverflow ####\n");
 	demoAdjacentMemoryOverflow("admin", "I don't know the password");
 	demoAdjacentMemoryOverflow("adminxxxx", "I still don't know the password");
